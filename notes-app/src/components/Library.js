@@ -3,7 +3,7 @@ import { FaRegEdit } from 'react-icons/fa';
 import NoteList from './NoteList.js'
 import Note from './Note'
 
-function Library({noteList, setNoteList, setEditorTitle, setEditorDate, setEditorText, setEditorButton}){
+function Library({noteList, setNoteList, setEditorTitle, setEditorDate, setEditorText }){
 
     const currentDate = () => {
         let today = new Date();
@@ -18,10 +18,34 @@ function Library({noteList, setNoteList, setEditorTitle, setEditorDate, setEdito
 
     const createNote = () => {
         let [title, date, noteText, isActive] = ['New note', currentDate(), 'blablabla', 'note active'];
-        let newNote = (<Note title={title} createdAt={date} noteText={noteText} dateForSort={new Date()} isActive={isActive} />)
+        let newNote = (<Note 
+                            title={title}
+                            createdAt={date}
+                            noteText={noteText}
+                            dateForSort={new Date()}
+                            isActive={isActive}
+                            noteList={noteList}
+                            setNoteList={setNoteList}
+                            setEditorTitle={setEditorTitle}
+                            setEditorDate={setEditorDate}
+                            setEditorText={setEditorText}
+                         />)
         let unselectedNoteList = noteList != undefined 
             ? noteList.sort((n1, n2) => n2.props.dateForSort - n1.props.dateForSort).map(note => {
-                return <Note title={note.props.title} createdAt={note.props.createdAt} noteText={note.props.noteText} dateForSort={note.props.noteText} isActive='note' />
+                return <Note 
+                            key={note.key}
+                            title={note.props.title}
+                            createdAt={note.props.createdAt}
+                            noteText={note.props.noteText}
+                            dateForSort={note.props.noteText}
+                            isActive='note'
+                            listID={note.props.listID}
+                            noteList={note.props.noteList}
+                            setNoteList={note.props.setNoteList}
+                            setEditorTitle={note.props.setEditorTitle}
+                            setEditorDate={note.props.setEditorDate}
+                            setEditorText={note.props.setEditorText}
+                        />
             }) 
             : null;
 
@@ -29,12 +53,11 @@ function Library({noteList, setNoteList, setEditorTitle, setEditorDate, setEdito
         setEditorTitle(title);
         setEditorDate(date);
         setEditorText(noteText);
-        setEditorButton(true)
     }
 
     const List1 = (noteList) => {
         if (noteList){
-            return <NoteList noteList={noteList} />
+            return <NoteList noteList={noteList} setNoteList={setNoteList} />
         } else {
             return []
         }

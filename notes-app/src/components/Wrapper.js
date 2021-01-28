@@ -1,14 +1,21 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Library from './Library.js'
 import Editor from './Editor.js';
 
 function Wrapper(){
+    const localStorageValue = localStorage.getItem('myNotes');
+
     //States
-    const [noteList, setNoteList] = useState();
+    const [noteList, setNoteList] = useState(localStorageValue != "undefined" ? JSON.parse(localStorageValue) : null);
     const [editorTitle, setEditorTitle] = useState('');
     const [editorDate, setEditorDate] = useState('');
     const [editorText, setEditorText] = useState('');
-    const [editorButton, setEditorButton] = useState(false);
+
+    useEffect(() => {
+        if (noteList != null && noteList != undefined){
+            localStorage.setItem('myNotes', JSON.stringify(noteList))
+        }
+    }, [noteList])
 
     return(
         <div id="wrapper">
@@ -18,13 +25,15 @@ function Wrapper(){
                 setEditorTitle={setEditorTitle}
                 setEditorDate={setEditorDate}
                 setEditorText={setEditorText}
-                setEditorButton={setEditorButton}
             />
             <Editor
                 editorTitle={editorTitle}
                 editorDate={editorDate}
                 editorText={editorText}
-                editorButton={editorButton}
+                setEditorTitle={setEditorTitle}
+                setEditorText={setEditorText}
+                noteList={noteList}
+                setNoteList={setNoteList}
             />
         </div>
     )

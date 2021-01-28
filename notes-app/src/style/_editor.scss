@@ -11,38 +11,22 @@
         height: fit-content;
         color: inherit;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         width: 100%;
         border-bottom: 1px solid #0F2027;
         padding-bottom: .5rem;
-        justify-content: space-between;
-
-        #editor-header-left{
-            textarea{
-                background: transparent;
-                border: none;
-                resize: none;
-                font-size: 2rem;
-                overflow-y: hidden;
-                color: inherit;
-                font-weight: 600;
-                width: 100%;
-            }
-            h5 {
-                font-weight: 400;
-            }
+        textarea{
+            background: transparent;
+            border: none;
+            resize: none;
+            font-size: 2rem;
+            overflow-y: hidden;
+            color: inherit;
+            font-weight: 600;
+            width: 100%;
         }
-
-        #editor-header-right{
-            display: flex;
-            align-items: flex-end;
-            #editor-save-btn{
-                font-size: 1.7rem;
-                cursor: pointer;
-                path {
-                    pointer-events: none;
-                }
-            }
+        h5 {
+            font-weight: 400;
         }
     }
 
@@ -56,5 +40,6 @@
         color: inherit;
         font-size: 1rem;
         resize: none;
+        outline: none;
     }
 }
