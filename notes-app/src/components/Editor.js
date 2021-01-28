@@ -1,34 +1,30 @@
 import { FaRegSave } from 'react-icons/fa';
-import Note from './Note.js';
 
-function Editor({noteTitle, setNoteTitle, createdAt, noteText, setNoteText, createNote, listOfNotes, setListOfNotes}){
-    const SaveNote = () => {
-        let newArr = listOfNotes.filter(note => {
-            if(note.props.createdAt != createdAt){
-                return note
-            }
-        })
+function Editor({editorTitle, editorDate, editorText, editorButton}){
 
-        if (newArr.length > 0){
-            setListOfNotes([...newArr, (<Note title={noteTitle} createdAt={createdAt} message={noteText} dateTime={new Date()} />)])
+    const ShowButton = (props) => {
+        let show = props.show
+        if (show){
+            return <FaRegSave id="editor-save-btn" />
         } else {
-            createNote(noteTitle, createdAt, noteText)
+            return null
         }
     }
 
-    return (
+    return(
         <div id="editor">
             <div id="editor-header">
                 <div id="editor-header-left">
-                    <textarea rows="1" value={noteTitle} onChange={(e) => setNoteTitle(e.target.value)}></textarea>
-                    <h5>Created at: { createdAt }</h5>
+                    <textarea rows="1" value={editorTitle} ></textarea>
+                    <h5>{editorDate}</h5>
                 </div>
-                <div id="editor-header-right" onClick={SaveNote}>
-                    <FaRegSave id="editor-save-btn" />
+                <div id="editor-header-right">
+                    <ShowButton show= {editorButton} />
                 </div>
-            </div>
+            </div>  
 
-            <textarea id="editor-main-editor" value={ noteText } onChange={(e) => setNoteText(e.target.value) } ></textarea>
+            <textarea id="editor-main-editor" value={editorText} ></textarea>
+            
         </div>
     )
 }

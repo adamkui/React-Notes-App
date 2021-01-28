@@ -57,12 +57,23 @@
 
             h1 {
                 font-size: 1.3rem;
+                pointer-events: none;
             }
             h5 {
                 font-size: .65rem;
                 margin-bottom: .5rem;
+                pointer-events: none;
             }
 
+            p{
+                pointer-events: none;
+            }
+
+        }
+
+        .note.active{
+            background: rgba(255, 255, 255, .75);
+            color: #0F2027;
         }
     }
 }
