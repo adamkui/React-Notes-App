@@ -27,6 +27,7 @@
 
         h1 {
             font-weight: 500;
+            font-size: 2rem;
         }
 
         #library-edit-btn {
@@ -62,6 +63,8 @@
             h1 {
                 font-size: 1.3rem;
                 pointer-events: none;
+                max-width: 95% !important;
+                overflow: hidden;
             }
             h5 {
                 font-size: .65rem;
