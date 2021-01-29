@@ -1,5 +1,6 @@
 #library {
     width: 20%;
+    min-width: 200px;
     height: 100%;
     max-width: 350px;
     display: flex;
@@ -10,6 +11,7 @@
     border-radius: 2rem;
     position: relative;
     color: white;
+    overflow: hidden;
     
     #library-header {
         display: flex;
