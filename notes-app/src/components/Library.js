@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { FaRegEdit } from 'react-icons/fa';
-import NoteList from './NoteList.js'
-import Note from './Note'
+import NoteList from './NoteList.js';
+import Note from './Note';
 
 function Library({noteList, setNoteList, setEditorTitle, setEditorDate, setEditorText }){
 
@@ -17,7 +17,7 @@ function Library({noteList, setNoteList, setEditorTitle, setEditorDate, setEdito
     }
 
     const createNote = () => {
-        let [title, date, noteText, isActive] = ['New note', currentDate(), 'blablabla', 'note active'];
+        let [title, date, noteText, isActive] = ['New note', currentDate(), 'Type here your notes', 'note active'];
         let newNote = (<Note 
                             title={title}
                             createdAt={date}
@@ -37,7 +37,7 @@ function Library({noteList, setNoteList, setEditorTitle, setEditorDate, setEdito
                             title={note.props.title}
                             createdAt={note.props.createdAt}
                             noteText={note.props.noteText}
-                            dateForSort={note.props.noteText}
+                            dateForSort={note.props.dateForSort}
                             isActive='note'
                             listID={note.props.listID}
                             noteList={note.props.noteList}

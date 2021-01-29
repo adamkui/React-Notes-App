@@ -13,7 +13,7 @@ function Note({title, createdAt, noteText, isActive, listID, noteList, setNoteLi
                         title={note.props.title}
                         createdAt={note.props.createdAt}
                         noteText={note.props.noteText}
-                        dateForSort={note.props.noteText}
+                        dateForSort={note.props.dateForSort}
                         isActive={(i == index) ? 'note active' : 'note'}
                         listID={note.props.listID}
                         noteList={note.props.noteList}
