@@ -12,8 +12,9 @@ function Wrapper(){
     const [editorText, setEditorText] = useState('');
     const [appStatus, setAppStatus] = useState('init');
 
+    //On page load get notes data from local storage
     if (appStatus === 'init'){
-        //Get date from local storage
+        //Get local storage data and convert date prop
         const localStorageValue = localStorage.getItem('myNotes');
         let newNotesList = (localStorageValue != undefined && localStorageValue != null)
             ? JSON.parse(localStorageValue).map(note => {
@@ -25,6 +26,7 @@ function Wrapper(){
             })
             : null;
 
+        //Create new components based on local storage data
         let noteListFromLS;
         if (newNotesList != null){
             noteListFromLS = newNotesList.sort((e1, e2) => e2 - e1).map((note, i) => {
@@ -46,7 +48,8 @@ function Wrapper(){
                 )
             })
         }
-
+        
+        //Update states
         setAppStatus('loaded');
         setNoteList(noteListFromLS)
         setEditorTitle(noteListFromLS[0].props.title)
@@ -55,6 +58,7 @@ function Wrapper(){
     }   
 
     useEffect(() => {
+        //Update local storage whenever the noteList state changes
         if (noteList != null && noteList != undefined){
             const newList = JSON.stringify(noteList.map(note =>{
                 return {

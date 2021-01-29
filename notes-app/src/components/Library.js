@@ -49,13 +49,14 @@ function Library({noteList, setNoteList, setEditorTitle, setEditorDate, setEdito
             }) 
             : null;
 
+        //Update components
         setNoteList(noteList != undefined ? [newNote, ...unselectedNoteList] : [newNote])
         setEditorTitle(title);
         setEditorDate(date);
         setEditorText(noteText);
     }
 
-    const List1 = (noteList) => {
+    const ListOfNotes = (noteList) => {
         if (noteList){
             return <NoteList noteList={noteList} setNoteList={setNoteList} />
         } else {
@@ -69,7 +70,7 @@ function Library({noteList, setNoteList, setEditorTitle, setEditorDate, setEdito
                 <h1>Notes</h1>
                 <FaRegEdit id="library-edit-btn" onClick={createNote} />
             </div>
-            <List1 noteList={noteList} />
+            <ListOfNotes noteList={noteList} />
         </div>
         
     )

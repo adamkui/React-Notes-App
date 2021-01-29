@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 function Note({title, createdAt, noteText, isActive, listID, noteList, setNoteList, setEditorTitle, setEditorDate, setEditorText }){
-
+    
     const changeActiveNote = (e) => {
         let index = e.target.dataset.listid;
         let eTitle = noteList[index].props.title;      
@@ -24,9 +24,8 @@ function Note({title, createdAt, noteText, isActive, listID, noteList, setNoteLi
                     />
         })
 
-        //Update library highlight
+        //Update states
         setNoteList(reselectedNoteList)
-        //Update Editor
         setEditorTitle(eTitle)
         setEditorDate(eDate)
         setEditorText(eText)

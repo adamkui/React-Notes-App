@@ -2,6 +2,7 @@ import { FaRegSave } from 'react-icons/fa';
 import Note from './Note'
 
 function Editor({editorTitle, editorDate, editorText, setEditorTitle, setEditorText, noteList, setNoteList}){
+    
     const changeTitle = (e) => {
         setEditorTitle(e.target.value)
         const changedTitleList = noteList.map(note =>{
