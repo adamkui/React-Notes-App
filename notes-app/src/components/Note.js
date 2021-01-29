@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 function Note({title, createdAt, noteText, isActive, listID, noteList, setNoteList, setEditorTitle, setEditorDate, setEditorText }){
     
     const changeActiveNote = (e) => {
@@ -35,7 +33,7 @@ function Note({title, createdAt, noteText, isActive, listID, noteList, setNoteLi
         <div className={isActive} data-listid={listID} onClick={changeActiveNote} >
             <h1>{(title.length > 20) ? title.substring(0,20).concat('...') : title}</h1>
             <h5>{createdAt}</h5>
-            <p>{(noteText.length > 25) ? noteText.substring(0,25).concat('...') : noteText }</p>
+            <p>{(noteText.length > 20) ? noteText.substring(0,20).concat('...') : noteText }</p>
          </div>
     )
 }

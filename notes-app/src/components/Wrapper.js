@@ -52,9 +52,10 @@ function Wrapper(){
         //Update states
         setAppStatus('loaded');
         setNoteList(noteListFromLS)
-        setEditorTitle(noteListFromLS[0].props.title)
-        setEditorDate(noteListFromLS[0].props.createdAt)
-        setEditorText(noteListFromLS[0].props.noteText)
+        console.log(noteListFromLS)
+        setEditorTitle((noteListFromLS.length > 0) ? noteListFromLS[0].props.title : '')
+        setEditorDate((noteListFromLS.length > 0) ? noteListFromLS[0].props.createdAt : '')
+        setEditorText((noteListFromLS.length > 0) ? noteListFromLS[0].props.noteText : '')
     }   
 
     useEffect(() => {
@@ -89,6 +90,7 @@ function Wrapper(){
                 editorText={editorText}
                 setEditorTitle={setEditorTitle}
                 setEditorText={setEditorText}
+                setEditorDate={setEditorDate}
                 noteList={noteList}
                 setNoteList={setNoteList}
             />
