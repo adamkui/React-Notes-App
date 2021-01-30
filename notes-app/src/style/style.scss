@@ -33,10 +33,22 @@ body {
         border-radius: 2rem;
         overflow: hidden;
     }
+
+    #info-btn{
+        position: absolute;   
+        bottom: 0;
+        right: 0;
+        margin: 1rem;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
 }
 
+@import 'loader';
 @import 'library';
 @import 'editor';
+@import 'info';
 
 @media screen and (max-width: 300px){
     #editor-delete-btn{
@@ -49,6 +61,19 @@ body {
     *{
         font-size: 70%;
     }
+
+    #loader{
+        img {
+            width: 50% !important;
+        }
+    }
+
+    #info{
+        #info-message-wrapper{
+            max-width: 90%;
+        }
+    }
+
     #wrapper{
         height: 100% !important;
         width: 100% !important;

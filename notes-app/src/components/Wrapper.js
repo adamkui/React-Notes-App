@@ -52,7 +52,6 @@ function Wrapper(){
         //Update states
         setAppStatus('loaded');
         setNoteList(noteListFromLS)
-        console.log(noteListFromLS)
         setEditorTitle((noteListFromLS.length > 0) ? noteListFromLS[0].props.title : '')
         setEditorDate((noteListFromLS.length > 0) ? noteListFromLS[0].props.createdAt : '')
         setEditorText((noteListFromLS.length > 0) ? noteListFromLS[0].props.noteText : '')
