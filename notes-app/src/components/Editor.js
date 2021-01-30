@@ -68,7 +68,7 @@ function Editor({editorTitle, editorDate, editorText, setEditorTitle, setEditorT
 
         //Update noteList state by removing active note
         setNoteList(noteList.sort((e1, e2) => e2.props.dateForSort - e1.dateForSort).filter((note, i) => {
-            if (note.props.isActive != 'note active'){
+            if (note.props.isActive !== 'note active'){
                 return note;
             } 
         }).map((note, i) => {

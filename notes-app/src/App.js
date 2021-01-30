@@ -1,4 +1,4 @@
-import style from './style/style.scss';
+import './style/style.scss';
 import Wrapper from './components/Wrapper';
 import Loader from './components/Loader';
 import Info from './components/Info';

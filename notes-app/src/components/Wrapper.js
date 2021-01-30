@@ -16,7 +16,7 @@ function Wrapper(){
     if (appStatus === 'init'){
         //Get local storage data and convert date prop
         const localStorageValue = localStorage.getItem('myNotes');
-        let newNotesList = (localStorageValue != undefined && localStorageValue != null)
+        let newNotesList = (localStorageValue !== undefined && localStorageValue !== null)
             ? JSON.parse(localStorageValue).map(note => {
                 let date = new Date(Date.parse(note.dateForSort))  
                 return {
@@ -59,7 +59,7 @@ function Wrapper(){
 
     useEffect(() => {
         //Update local storage whenever the noteList state changes
-        if (noteList != null && noteList != undefined){
+        if (noteList !== null && noteList !== undefined){
             const newList = JSON.stringify(noteList.map(note =>{
                 return {
                     createdAt: note.props.createdAt,

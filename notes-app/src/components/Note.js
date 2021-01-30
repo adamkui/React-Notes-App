@@ -1,7 +1,7 @@
 function Note({title, createdAt, noteText, isActive, listID, noteList, setNoteList, setEditorTitle, setEditorDate, setEditorText }){
     
     const changeActiveNote = (e) => {
-        let index = e.target.dataset.listid;
+        let index = parseInt(e.target.dataset.listid); 
         let eTitle = noteList[index].props.title;      
         let eDate = noteList[index].props.createdAt;      
         let eText = noteList[index].props.noteText;      
@@ -12,7 +12,7 @@ function Note({title, createdAt, noteText, isActive, listID, noteList, setNoteLi
                         createdAt={note.props.createdAt}
                         noteText={note.props.noteText}
                         dateForSort={note.props.dateForSort}
-                        isActive={(i == index) ? 'note active' : 'note'}
+                        isActive={(i === index) ? 'note active' : 'note'}
                         listID={note.props.listID}
                         noteList={note.props.noteList}
                         setNoteList={note.props.setNoteList}

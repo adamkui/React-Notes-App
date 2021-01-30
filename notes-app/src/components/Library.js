@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { FaRegEdit } from 'react-icons/fa';
 import NoteList from './NoteList.js';
 import Note from './Note';
@@ -30,7 +29,7 @@ function Library({noteList, setNoteList, setEditorTitle, setEditorDate, setEdito
                             setEditorDate={setEditorDate}
                             setEditorText={setEditorText}
                          />)
-        let unselectedNoteList = noteList != undefined 
+        let unselectedNoteList = noteList !== undefined 
             ? noteList.sort((n1, n2) => n2.props.dateForSort - n1.props.dateForSort).map(note => {
                 return <Note 
                             key={note.key}
@@ -50,7 +49,7 @@ function Library({noteList, setNoteList, setEditorTitle, setEditorDate, setEdito
             : null;
 
         //Update components
-        setNoteList(noteList != undefined ? [newNote, ...unselectedNoteList] : [newNote])
+        setNoteList(noteList !== undefined ? [newNote, ...unselectedNoteList] : [newNote])
         setEditorTitle(title);
         setEditorDate(date);
         setEditorText(noteText);
